@@ -12,9 +12,9 @@ const Banner = () => {
                         className="rounded-lg shadow-2xl"
                     />
                 </div>
-                <div className='text-center md:text-start lg:w-1/2 space-y-7'>
-                    <h1 className="text-6xl font-bold">Books to freshen up <br />your bookshelf</h1>
-                    <button className="btn btn-success text-xl font-bold text-white py-5">View The List</button>
+                <div className='text-center md:text-start lg:w-1/2 space-y-8 mt-8 md:mt-0'>
+                    <h1 className="text-4xl md:text-6xl font-bold">Books to freshen up <br />your bookshelf</h1>
+                    <button className="btn btn-success text-base md:text-xl font-bold text-white py-5">View The List</button>
                 </div>
             </div>
         </div>
