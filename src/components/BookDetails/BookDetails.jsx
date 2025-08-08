@@ -8,22 +8,9 @@ const BookDetails = () => {
     const singleData = data.find(book => book.bookId === id);
 
     const { bookName, image, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = singleData;
-    // console.log(singleData);
-    /* 
-    "bookId": 2,
-    "bookName": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "image": "https://i.ibb.co.com/0cv102J/To-Kill-a-Mockingbird.webp",
-    "review": 
-    "totalPages": 281,
-    "rating": 4.8,
-    "category": "Fiction",
-    "tags": ["Drama", "Social Justice"],
-    "publisher": "J.B. Lippincott & Co.",
-    "yearOfPublishing": 1960
-     */
+
     return (
-        <div className="hero my-12 min-h-screen">
+        <div className="hero mt-12 mb-24 min-h-screen">
             <div className="hero-content p-0 flex-col md:flex-row">
                 <div className='md:w-1/2 bg-[#F3F3F3] rounded-xl'>
                     <div className='p-8 md:p-16'>
@@ -65,7 +52,7 @@ const BookDetails = () => {
                             <p className='font-bold text-black'>{rating}</p>
                         </div>
                     </div>
-                    <div className='flex gap-3'>
+                    <div className='flex gap-4'>
                         <button className="btn btn-outline btn-info font-bold">Mark as Read</button>
                         <button className='btn btn-info text-white font-bold'>Wishlist</button>
                     </div>
