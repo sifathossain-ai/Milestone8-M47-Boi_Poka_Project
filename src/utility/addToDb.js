@@ -10,11 +10,11 @@ const getReadList = () => {
 }
 
 const saveToLocalStorage = (id) => {
-    console.log(id);
+    // console.log(id);
     const dataList = getReadList()
 
     if (dataList.includes(id)){
-        alert('You Already Added this Books!\n Try to Add Another');
+        alert('You Already Added this Books!\nTry to Add Another');
     }
     else {
         dataList.push(id);
