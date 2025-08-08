@@ -52,8 +52,8 @@ yearOfPublishing: 1925
                             </div>
                         </div>
                     </div>
-                    <div className="divider"></div>
-                    <small className="flex items-center gap-4 font-thin">
+                    <div className="divider divide-gray-50"></div>
+                    <small className="flex items-center gap-3 font-thin">
                         <button className="btn btn-xs rounded-full border-none text-teal-600 bg-teal-50">Id: {bookId}</button>
                         <button className="btn btn-xs rounded-full border-none text-blue-600 bg-blue-50">Category: {category}</button>
                         <button className="btn btn-xs rounded-full border-none text-orange-500 bg-orange-50">Rating: {rating}</button>

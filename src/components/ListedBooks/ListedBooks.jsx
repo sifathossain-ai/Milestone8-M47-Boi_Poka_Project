@@ -29,22 +29,20 @@ const ListedBooks = () => {
                     <Tab>Wishlist Books</Tab>
                 </TabList>
 
-                <div className='my-12'>
+                <TabPanel className='my-12'>
                     <button className='btn btn-xs border-none bg-cyan-100 rounded-full text-black font-bold'>
                         <p>Total Book List: {readList.length}</p>
                     </button>
-                    <TabPanel>
-                        {
-                            readList.map(book => <ReadBooks book={book}></ReadBooks>)
-                        }
-                    </TabPanel>
-                </div>
+                    {
+                        readList.map(book => <ReadBooks book={book}></ReadBooks>)
+                    }
+                </TabPanel>
 
                 <TabPanel>
                     <h2>This is Wishlist Books Section</h2>
                 </TabPanel>
-            </Tabs>
-        </div>
+            </Tabs >
+        </div >
     );
 };
 

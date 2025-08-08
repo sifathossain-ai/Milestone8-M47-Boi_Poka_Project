@@ -21,7 +21,7 @@ const BookDetails = () => {
 
     return (
         <div className="hero mt-12 mb-24 min-h-screen">
-            <div className="hero-content p-0 flex-col md:flex-row">
+            <div className="hero-content p-0 gap-6 flex-col md:flex-row">
                 <div className='md:w-1/2 bg-[#F3F3F3] rounded-xl'>
                     <div className='p-8 md:p-16'>
                         <img
@@ -63,8 +63,8 @@ const BookDetails = () => {
                         </div>
                     </div>
                     <div className='flex gap-4'>
-                        <button onClick={() => handleMarkAsRead(bookId)} className="btn btn-outline btn-info font-bold">Mark as Read</button>
-                        <button onClick={() => handleWishList(bookId)} className='btn btn-info text-white font-bold'>Wishlist</button>
+                        <button onClick={() => handleMarkAsRead(bookId)} className="btn btn-outline border-cyan-600 font-bold">Mark as Read</button>
+                        <button onClick={() => handleWishList(bookId)} className='btn bg-cyan-600 text-white font-bold'>Wishlist</button>
                     </div>
                 </div>
             </div>
