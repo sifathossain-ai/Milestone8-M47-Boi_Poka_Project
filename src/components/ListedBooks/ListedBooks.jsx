@@ -31,7 +31,7 @@ const ListedBooks = () => {
 
                 <div className='my-12'>
                     <button className='btn btn-xs border-none bg-cyan-100 rounded-full text-black font-bold'>
-                        <p>Total Book List:  {readList.length}</p>
+                        <p>Total Book List: {readList.length}</p>
                     </button>
                     <TabPanel>
                         {

@@ -2,7 +2,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { BsPeople } from "react-icons/bs";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 export const ReadBooks = ({ book }) => {
-    const { bookName, image, author, tags, yearOfPublishing, publisher, totalPages, category, rating } = book;
+    const { bookId, bookName, image, author, tags, yearOfPublishing, publisher, totalPages, category, rating } = book;
     /* 
 author: "F. Scott Fitzgerald"
 bookId: 1
@@ -54,6 +54,7 @@ yearOfPublishing: 1925
                     </div>
                     <div className="divider"></div>
                     <small className="flex items-center gap-4 font-thin">
+                        <button className="btn btn-xs rounded-full border-none text-teal-600 bg-teal-50">Id: {bookId}</button>
                         <button className="btn btn-xs rounded-full border-none text-blue-600 bg-blue-50">Category: {category}</button>
                         <button className="btn btn-xs rounded-full border-none text-orange-500 bg-orange-50">Rating: {rating}</button>
                         <button className="btn btn-xs border-none rounded-full text-white bg-green-600">View Details</button>
