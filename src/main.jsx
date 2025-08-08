@@ -12,7 +12,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import BookDetails from './components/BookDetails/BookDetails';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,11 +20,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
-        path: '/listedbooks',
-        element: <ListedBooks></ListedBooks>
+        path: '/listedBooks',
+        element: <ListedBooks></ListedBooks>,
       },
       {
         path: '/books/:bookId',
@@ -34,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
       }
     ]
   },
