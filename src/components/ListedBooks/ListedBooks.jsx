@@ -5,11 +5,11 @@ import 'react-tabs/style/react-tabs.css';
 import { ReadBooks } from '../ReadBooks/ReadBooks';
 
 const ListedBooks = () => {
-    const [readList, setReadList] = useState([]) 
+    const [readList, setReadList] = useState([])
     const allBooks = useLoaderData()
     // console.log(allBooks);
 
-    useEffect( () => {
+    useEffect(() => {
         const getBookList = localStorage.getItem('read-list');
         const getBookListObject = JSON.parse(getBookList);
         const getBookListInt = getBookListObject.map(id => parseInt(id));
@@ -29,12 +29,16 @@ const ListedBooks = () => {
                     <Tab>Wishlist Books</Tab>
                 </TabList>
 
-                <TabPanel>
-                    <h2>Read Books: {readList.length}</h2>
-                    {
-                        readList.map(book => <ReadBooks book={book}></ReadBooks>)
-                    }
-                </TabPanel>
+                <div className='my-12'>
+                    <button className='btn btn-xs border-none bg-cyan-100 rounded-full text-black font-bold'>
+                        <p>Total Book List:  {readList.length}</p>
+                    </button>
+                    <TabPanel>
+                        {
+                            readList.map(book => <ReadBooks book={book}></ReadBooks>)
+                        }
+                    </TabPanel>
+                </div>
 
                 <TabPanel>
                     <h2>This is Wishlist Books Section</h2>

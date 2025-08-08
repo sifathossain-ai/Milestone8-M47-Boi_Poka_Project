@@ -17,7 +17,7 @@ totalPages: 192
 yearOfPublishing: 1925
      */
     return (
-        <div className="border rounded-xl my-5">
+        <div className="border border-gray-100 rounded-xl my-5">
             <div className="p-4 md:p-7 md:flex gap-7">
                 <div className="py-12 px-16 rounded-xl bg-[#F3F3F3] md:w-1/3 flex justify-center items-center">
                     <div>
@@ -36,7 +36,7 @@ yearOfPublishing: 1925
                             {
                                 tags.map((tag, idx) => <button key={idx} className="btn btn-xs bg-green-50 border-none rounded-full text-green-500 font-bold">#{tag}</button>)
                             }
-                            <div className="flex gap-2 justify-center items-center">
+                            <div className="flex gap-1 justify-center items-center">
                                 <CiLocationOn></CiLocationOn>
                                 <small className="text-gray-600">Publishing: {yearOfPublishing}</small>
                             </div>
