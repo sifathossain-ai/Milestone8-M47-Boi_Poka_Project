@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import saveToLocalStorage from '../../utility/addToDb';
+import saveWishlistToLocalStorage from '../../utility/addWishlistToDb';
 
 const BookDetails = () => {
     const { bookId } = useParams();
@@ -7,7 +9,15 @@ const BookDetails = () => {
     const data = useLoaderData();
     const singleData = data.find(book => book.bookId === id);
 
-    const { bookName, image, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = singleData;
+    const {bookName, image, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = singleData;
+
+    const handleMarkAsRead = (id) => {
+        saveToLocalStorage(id);
+    }
+
+    const handleWishList = (id) => {
+        saveWishlistToLocalStorage(id);
+    }
 
     return (
         <div className="hero mt-12 mb-24 min-h-screen">
@@ -53,8 +63,8 @@ const BookDetails = () => {
                         </div>
                     </div>
                     <div className='flex gap-4'>
-                        <button className="btn btn-outline btn-info font-bold">Mark as Read</button>
-                        <button className='btn btn-info text-white font-bold'>Wishlist</button>
+                        <button onClick={() => handleMarkAsRead(bookId)} className="btn btn-outline btn-info font-bold">Mark as Read</button>
+                        <button onClick={() => handleWishList(bookId)} className='btn btn-info text-white font-bold'>Wishlist</button>
                     </div>
                 </div>
             </div>
