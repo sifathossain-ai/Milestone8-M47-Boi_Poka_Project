@@ -7,7 +7,7 @@ import { ReadBooks } from '../ReadBooks/ReadBooks';
 const ListedBooks = () => {
     const [readList, setReadList] = useState([]);
     const [wishlist, setWishlist] = useState([]);
-    const allBooks = useLoaderData()
+    const allBooks = useLoaderData([])
     const [sort, setSort] = useState('');
     // console.log(allBooks);
 
@@ -81,7 +81,7 @@ const ListedBooks = () => {
                         </button>
                     </div>
                     {
-                        readList.map(book => <ReadBooks book={book}></ReadBooks>)
+                        readList.map((book, idx) => <ReadBooks key={idx} book={book}></ReadBooks>)
                     }
                 </TabPanel>
 
@@ -90,7 +90,7 @@ const ListedBooks = () => {
                         <p>Total Wish List: {wishlist.length}</p>
                     </button>
                     {
-                        wishlist.map(book => <ReadBooks book={book}></ReadBooks>)
+                        wishlist.map((book, idx) => <ReadBooks  key={idx} book={book}></ReadBooks>)
                     }
                 </TabPanel>
             </Tabs >
