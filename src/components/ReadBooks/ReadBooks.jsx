@@ -1,7 +1,12 @@
 import { CiLocationOn } from "react-icons/ci";
 import { BsPeople } from "react-icons/bs";
 import { HiOutlineNewspaper } from "react-icons/hi2";
-export const ReadBooks = ({ book }) => {
+import { AiOutlineDelete } from "react-icons/ai";
+import { useState } from "react";
+import ListedBooks from "../ListedBooks/ListedBooks";
+
+export const ReadBooks = ({ book, handleDeleteBook, handleDeleteWishList }) => {
+
     const { bookId, bookName, image, author, tags, yearOfPublishing, publisher, totalPages, category, rating } = book;
     /* 
 author: "F. Scott Fitzgerald"
@@ -29,7 +34,13 @@ yearOfPublishing: 1925
                 </div>
                 <div className="md:w-2/3 mt-7 md:mt-0">
                     <div className="space-y-4">
-                        <h1 className="text-2xl md:text-4xl font-bold">{bookName}</h1>
+                        <div className="flex justify-between items-center">
+                            <h1 className="text-2xl md:text-4xl font-bold">{bookName}</h1>
+                            <AiOutlineDelete
+                                onClick={() => handleDeleteBook ? handleDeleteBook(bookId) : handleDeleteWishList(bookId)}
+                                className="text-red-400">
+                            </AiOutlineDelete>
+                        </div>
                         <p className="text-gray-600 font-bold">By: {author}</p>
                         <div className='flex gap-3'>
                             <p className='font-bold text-black'>Tag </p>

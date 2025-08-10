@@ -52,6 +52,20 @@ const ListedBooks = () => {
         }
     }
 
+    const handleDeleteBook = (id) => {
+        console.log(id);
+        const updateBookList = readList.filter(book => book.bookId !== id);
+        setReadList(updateBookList);
+        localStorage.setItem('read-list', JSON.stringify(updateBookList.map(m => m.bookId)));
+    }
+
+    const handleDeleteWishList = id => {
+        console.log(id);
+        const updateWishList = wishlist.filter(book => book.bookId !== id);
+        setWishlist(updateWishList);
+        localStorage.setItem('wish-list', JSON.stringify(updateWishList.map(m => m.bookId)));
+    }
+
     return (
         <div>
             <div className='bg-[#F3F3F3] rounded-lg mb-12 md:mb-20'>
@@ -81,7 +95,10 @@ const ListedBooks = () => {
                         </button>
                     </div>
                     {
-                        readList.map((book, idx) => <ReadBooks key={idx} book={book}></ReadBooks>)
+                        readList.map((book, idx) => <ReadBooks key={idx} 
+                        book={book}
+                        handleDeleteBook={handleDeleteBook}
+                        ></ReadBooks>)
                     }
                 </TabPanel>
 
@@ -90,7 +107,10 @@ const ListedBooks = () => {
                         <p>Total Wish List: {wishlist.length}</p>
                     </button>
                     {
-                        wishlist.map((book, idx) => <ReadBooks  key={idx} book={book}></ReadBooks>)
+                        wishlist.map((book, idx) => <ReadBooks  key={idx} 
+                        book={book}
+                        handleDeleteWishList={handleDeleteWishList}
+                        ></ReadBooks>)
                     }
                 </TabPanel>
             </Tabs >
