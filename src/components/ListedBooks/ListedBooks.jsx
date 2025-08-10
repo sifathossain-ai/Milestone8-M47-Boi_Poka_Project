@@ -8,15 +8,16 @@ const ListedBooks = () => {
     const [readList, setReadList] = useState([]);
     const [wishlist, setWishlist] = useState([]);
     const allBooks = useLoaderData()
+    const [sort, setSort] = useState('');
     // console.log(allBooks);
 
     useEffect(() => {
         const getBookList = localStorage.getItem('read-list');
         const getBookListObject = JSON.parse(getBookList);
         const getBookListInt = getBookListObject.map(id => parseInt(id));
-        console.log(getBookListInt);
+        // console.log(getBookListInt);
         const readBookList = allBooks.filter(book => getBookListInt.includes(book.bookId));
-        console.log(readBookList);
+        // console.log(readBookList);
         setReadList(readBookList);
     }, [])
 
@@ -24,11 +25,25 @@ const ListedBooks = () => {
         const getWishlist = localStorage.getItem('wish-list');
         const getWishlistObject = JSON.parse(getWishlist);
         const getWishlistInt = getWishlistObject.map(id => parseInt(id));
-        console.log(getWishlistInt);
+        // console.log(getWishlistInt);
         const readWishlist = allBooks.filter(book => getWishlistInt.includes(book.bookId));
-        console.log(readWishlist);
+        // console.log(readWishlist);
         setWishlist(readWishlist);
     }, [])
+
+    const handleSort = sortType => {
+        setSort(sortType);
+
+        if(sortType === "Number of Pages"){
+            const SortByPages = [...readList].sort((a, b) =>
+                b.totalPages - a.totalPages);
+            setReadList(SortByPages);
+        }
+        else{
+            const sortByRating = [...readList].sort((a, b) => b.rating - a.rating);
+            setReadList(sortByRating);
+        }
+    }
 
     return (
         <div>
@@ -42,9 +57,22 @@ const ListedBooks = () => {
                 </TabList>
 
                 <TabPanel className='my-12'>
-                    <button className='btn btn-xs border-none bg-cyan-100 rounded-full text-black font-bold'>
-                        <p>Total Book List: {readList.length}</p>
-                    </button>
+                    <div className='flex justify-between items-center'>
+                        <div className="dropdown">
+                            <div tabIndex={0} role="button" className="btn btn-xs border-none bg-emerald-100 m-1 rounded-full">
+                                {
+                                    sort ? `Sort By: ${sort}` : 'Sort By'
+                                }
+                            </div>
+                            <ul tabIndex={0} className="dropdown-content menu bg-emerald-100 rounded-box z-1 w-32 p-2 shadow-sm">
+                                <small onClick={() => handleSort('Rating')}><li><a>Rating</a></li></small>
+                                <small onClick={() => handleSort('Number of Pages')}><li><a>Number of Pages</a></li></small>
+                            </ul>
+                        </div>
+                        <button className='btn btn-xs border-none bg-cyan-100 rounded-full text-black font-bold'>
+                            <p>Total Book List: {readList.length}</p>
+                        </button>
+                    </div>
                     {
                         readList.map(book => <ReadBooks book={book}></ReadBooks>)
                     }
@@ -52,7 +80,7 @@ const ListedBooks = () => {
 
                 <TabPanel>
                     <button className='btn btn-xs border-none bg-cyan-100 rounded-full text-black font-bold'>
-                        <p>Total Book List: {wishlist.length}</p>
+                        <p>Total Wish List: {wishlist.length}</p>
                     </button>
                     {
                         wishlist.map(book => <ReadBooks book={book}></ReadBooks>)
