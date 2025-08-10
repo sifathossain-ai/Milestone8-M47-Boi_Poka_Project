@@ -40,7 +40,14 @@ const ListedBooks = () => {
             setReadList(SortByPages);
         }
         else{
-            const sortByRating = [...readList].sort((a, b) => b.rating - a.rating);
+            const sortByRating = [...readList].sort((a, b) => {
+                if (b.rating === a.rating){
+                    return b.totalPages - a.totalPages;
+                }
+                else {
+                    return b.rating - a.rating;
+                }
+            });
             setReadList(sortByRating);
         }
     }
